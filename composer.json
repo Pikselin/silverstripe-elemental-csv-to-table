@@ -3,8 +3,12 @@
     "type": "silverstripe-vendormodule",
     "description": "Add a table to the page from a CSV file source",
     "keywords": [
-        "silverstripe", "elemental", "blocks"
+        "silverstripe", "elemental", "blocks", "table","CSV"
     ],
+    "homepage" : "https://github.com/Pikselin/silverstripe-elemental-csv-to-table",
+    "support" : {
+      "issues" : "https://github.com/Pikselin/silverstripe-elemental-csv-to-table/issues"
+    },
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -14,16 +18,15 @@
         }
     ],
     "require": {
+        "silverstripe/cms": "^4",
+        "silverstripe/framework": "^4",
         "dnadesign/silverstripe-elemental": "^4.0"
     },
     "config": {
         "process-timeout": 600
     },
     "extra": {
-        "installer-name": "silverstripe-elemental-csv-table",
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
+        "installer-name": "silverstripe-elemental-csv-table"
     },
     "autoload": {
         "psr-4": {
