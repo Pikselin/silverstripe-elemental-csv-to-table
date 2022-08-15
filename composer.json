@@ -1,0 +1,36 @@
+{
+    "name": "pikselin/silverstripe-elemental-csv-table",
+    "type": "silverstripe-vendormodule",
+    "description": "Add a table to the page from a CSV file source",
+    "keywords": [
+        "silverstripe", "elemental", "blocks"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Pikselin",
+            "email": "info@pikselin.com",
+            "homepage": "https://pikselin.com"
+        }
+    ],
+    "require": {
+        "dnadesign/silverstripe-elemental": "^4.0"
+    },
+    "config": {
+        "process-timeout": 600
+    },
+    "extra": {
+        "installer-name": "silverstripe-elemental-csv-table",
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Pikselin\\Elemental\\Blocks\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
+
