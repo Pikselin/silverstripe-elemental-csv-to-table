@@ -1,0 +1,9 @@
+---
+Name: csv-to-table-config
+---
+Pikselin\Elemental\Blocks\ElementalCSVTable:
+  # extra class(es) to add to the table element
+  # examples:
+  # extra_table_class: 'table'
+  # extra_table_class: 'table simple-table'
+
