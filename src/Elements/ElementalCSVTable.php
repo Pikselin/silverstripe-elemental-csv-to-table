@@ -8,6 +8,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\FieldType\DBField;
 use function _t;
 
@@ -17,7 +18,7 @@ class ElementalCSVTable extends BaseElement {
     private static $plural_name = 'CSV Tables';
     private static $icon = 'font-icon-thumbnails';
     private static $db = [
-        'UseFirstRowAsHeader' => 'Boolean'
+        'UseFirstRowAsHeader' => 'Boolean',
     ];
     private static $has_one = [
         'CSVFile' => File::class
@@ -120,7 +121,15 @@ class ElementalCSVTable extends BaseElement {
                 }
             }
 
-            $bodyContainer = '<table class="embeddedDataTable"><thead>{TABLEHEADER}</thead><tbody>{TABLEBODY}</tbody></table>';
+            // add in configurable table class
+            $tableClass = "embeddedDataTable";
+            if ($this->config()->extra_table_class) {
+                $tableClass .= ' ' . $this->config()->extra_table_class;
+            }
+
+            $bodyContainer = '<table class="'
+                . $tableClass
+                . '"><thead>{TABLEHEADER}</thead><tbody>{TABLEBODY}</tbody></table>';
             //echo 'header '.$this->StickyHeader;
 
             return str_replace(
