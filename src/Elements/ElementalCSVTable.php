@@ -66,8 +66,9 @@ class ElementalCSVTable extends BaseElement {
             'body' => []
         ];
 
-        if ($this->CSVFile()) {
-            $CSVFile = fopen(Director::getAbsFile('assets/' . $this->CSVFile()->Filename), "r");
+        $filePath = Director::getAbsFile('assets/' . $this->CSVFile()->Filename);
+        if ($this->CSVFile() && file_exists($filePath)) {
+            $CSVFile = fopen($filePath, "r");
             if ($CSVFile !== FALSE) {
                 $c = 0;
                 while (($data = fgetcsv($CSVFile)) !== FALSE) {
@@ -98,7 +99,8 @@ class ElementalCSVTable extends BaseElement {
         return $table;
     }
 
-    private function makeHTMLTable() {
+    private function makeHTMLTable()
+    {
         $data = $this->CSVdata();
         if ($data !== false) {
             $headerRows = '';
@@ -133,9 +135,9 @@ class ElementalCSVTable extends BaseElement {
             //echo 'header '.$this->StickyHeader;
 
             return str_replace(
-                    ['{TABLEHEADER}', '{TABLEBODY}'],
-                    [$headerRows, $bodyRows],
-                    $bodyContainer
+                ['{TABLEHEADER}', '{TABLEBODY}'],
+                [$headerRows, $bodyRows],
+                $bodyContainer
             );
         }
         return false;
@@ -146,3 +148,4 @@ class ElementalCSVTable extends BaseElement {
     }
 
 }
+
