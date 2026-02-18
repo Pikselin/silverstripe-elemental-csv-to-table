@@ -69,7 +69,7 @@ class ElementalCSVTable extends BaseElement {
             $CSVFile = fopen(Director::getAbsFile('assets/' . $this->CSVFile()->Filename), "r");
             if ($CSVFile !== FALSE) {
                 $c = 0;
-                while (($data = fgetcsv($CSVFile)) !== FALSE) {
+                while (($data = fgetcsv($CSVFile, escape: "")) !== FALSE) {
                     if ($c == 0 && $this->UseFirstRowAsHeader == true) {
                         $num = count($data);
                         foreach ($data as $k => $v) {
